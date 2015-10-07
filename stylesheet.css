@@ -8,6 +8,7 @@ html,body{
 	width: 100%;
 	/*Roboto font*/
 	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
 }
 
 input:focus,button:focus{outline: none;}
@@ -31,7 +32,8 @@ input:focus,button:focus{outline: none;}
 	width: 100%;
 	opacity:0.4; 
 	background-color: #000;
-	background: url(img/pattern.png) repeat fixed;
+	/*Pattern bg*/
+	/*background: url(img/pattern.png) repeat fixed;*/
 	background-size: 5px 5px;
 }
 
@@ -56,7 +58,7 @@ input:focus,button:focus{outline: none;}
 	width: 300px;
 	height: 50px;
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
+	font-size: 2em;
 	font-weight: 100;
 	padding-left: 10px;
 	border: 1px solid #fff;
@@ -71,7 +73,7 @@ input:focus,button:focus{outline: none;}
 }
 
 #searchBtn {
-	font-size: 18px;
+	font-size: 1.5em;
 	color: #fff;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -81,6 +83,11 @@ input:focus,button:focus{outline: none;}
 	display: inline-block;
 	background-color: #FFA028;
 	outline: none;
+
+	/*Set BG as search glass?*/
+	background: url(img/search.png) no-repeat center center;
+	background-color: #FFA028;
+	background-size: 50px auto;
 }
 
 #searchBtn:hover{
@@ -106,11 +113,31 @@ input:focus,button:focus{outline: none;}
 	height: 52px;
 	width: auto;
 }
-#geoBtn:hover{
-	transform: rotate(20deg);
+#geoBtn img:hover{
+	/*transform: rotate(20deg);*/
+
+	/*start the geo jump*/
+	-webkit-animation:bounce 0.7s linear;
+    -moz-animation:bounce 0.7s linear;
+    animation:bounce 0.7s linear infinite;
 }
+/*Make the geolocation marker jump*/
+@-moz-keyframes bounce{ 100% {-moz-transform:translateY(-5px);} }
+@-webkit-keyframes bounce{ 100% {-webkit-transform:translateY(-5px);} }
+@keyframes bounce{
+	0% {transform:translateY(0px);}
+	12,5% {transform:translateY(-2.5px);} 
+	25% {transform:translateY(-5px);} 
+	37,5% {transform:translateY(-2.5px);} 
+	50% {transform:translateY(0px);} 
+	62,5% {transform:translateY(2.5px); transform:scaleY(0.99);} 
+	75% {transform:translateY(5px); transform:scaleY(0.95);} 
+	87,5% {transform:translateY(2.5px); transform:scaleY(0.99);} 
+	100% {transform:translateY(0px);}
+}
+
 #geoBtn:hover > .message{
-	display: block;
+	display: none;
 }
 
 .message{
@@ -120,5 +147,21 @@ input:focus,button:focus{outline: none;}
 	font-size: 16px;
 	font-weight: 100;
 }
+
+
+
+
+h1{
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 3em;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+}
+
+
+
 
 

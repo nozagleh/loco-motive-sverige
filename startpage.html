@@ -8,6 +8,8 @@
 	<!-- added Roboto font -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/getGeolocation.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css" media="all" />
 </head>
 <body>
@@ -16,13 +18,13 @@
 		<!-- google maps static api<img id="map_bg" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&scale=4&size=1916x955&key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I">-->
 	</div></div>
 		<header>
-		
+			<h1><span style="color:#005b99;">Locomo</span><span style="color:#fcd116;">tive S</span><span style="color:#005b99;">verige</span></h1>
 		</header>
 		
 		
 		<div id="searchBox">
 			<form action="page.php" method="get">
-				<input id="searchField" type="text" name="search" placeholder="Station or Train Nr" /><input id="searchBtn" type="submit" value="Search" />
+				<input id="searchField" type="text" name="search" placeholder="Station or Train number" /><input id="searchBtn" type="submit" value="" />
 				<button id="geoBtn" type="button"><img src="img/gps_pointer.png"><p class="message">See stations near me!</p></button>
 			</form>
 		</div>

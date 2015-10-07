@@ -20,6 +20,7 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">
         var Stations = new Array();
+        var statName;
         $(document).ready(function () {
             $.support.cors = true; // Enable Cross domain requests
             try {
@@ -43,6 +44,12 @@
                 clearTimeout(loadingTimer);
                 $("#loader").hide();
             });
+
+            $("#submitBtn").click(function(event) {
+                statName = $("#station").val();
+                console.log(statName);
+            });
+
             // Load stations
             PreloadTrainStations();
         });
@@ -57,6 +64,7 @@
                                     "<INCLUDE>Prognosticated</INCLUDE>" +
                                     "<INCLUDE>AdvertisedLocationName</INCLUDE>" +
                                     "<INCLUDE>LocationSignature</INCLUDE>" +
+                                    "<INCLUDE>PlatformLine</INCLUDE>"+
                                 "</QUERY>" +
                              "</REQUEST>";
             $.ajax({
@@ -72,6 +80,7 @@
                         {
                             // Save a key/value list of stations
                             Stations[item.LocationSignature] = item.AdvertisedLocationName;
+                            Stations[item.PlatformLine] = item.PlatformLine;
                             // Create an array to fill the search field autocomplete.
                             if (item.Prognosticated == true)
                                 stationlist.push({ label: item.AdvertisedLocationName, value: item.LocationSignature });
@@ -97,7 +106,7 @@
                         }
                     });
                     response(matches);
-                    console.log(matches);
+                    //console.log(matches);
                 },
                 select: function (event, ui) {
                     var selectedObj = ui.item;
@@ -176,7 +185,7 @@
                 var toList = new Array();
 				//console.log(toList);
                 $(item.ToLocation).each(function (iterator, toItem) {
-					console.log(item.ToLocation);
+					//console.log(item.ToLocation);
                     toList.push(Stations[toItem]);
                 });
                 var owner = "";
@@ -193,7 +202,7 @@
 <body>
     <div>
         <input id="station" type="text" />
-        <input type="button" value="Visa" onclick="javascript: Search()" />
+        <input type="button" value="Visa" id="submitBtn" onclick="javascript: Search()" />
         <span id="loader" style="margin-left: 10px">Laddar data ...</span>
     </div>
     <div id="result">
@@ -205,6 +214,7 @@
                         <th scope="col" style="width:200px;">Till</th>
                         <th scope="col" style="width:80px;"></th>
                         <th scope="col"  style="width:80px;">Spår</th>
+                        <th scope="col" style="width:200px;">Platforms</th>
                       </tr>
                     </table>
                   </div>
