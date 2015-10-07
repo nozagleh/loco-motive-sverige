@@ -4,11 +4,17 @@
 	<title></title>
 	<meta charset="utf-8" />
 	<!-- keywords, descriptions, other meta data about the page -->
+
+	<!-- added Roboto font -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" type="text/css" href="stylesheet.css" media="all" />
 </head>
 <body>
 
-	<div id="blackopacity"><div id="background"></div></div>
+	<div id="background"><div id="blackopacity">
+		<!-- google maps static api<img id="map_bg" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&scale=4&size=1916x955&key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I">-->
+	</div></div>
 		<header>
 		
 		</header>
@@ -16,7 +22,8 @@
 		
 		<div id="searchBox">
 			<form action="page.php" method="get">
-				<input id="searchField" type="text" name="search" placeholder="Train nr or station" /><input id="searchBtn" type="submit" value="Search" />
+				<input id="searchField" type="text" name="search" placeholder="Station or Train Nr" /><input id="searchBtn" type="submit" value="Search" />
+				<button id="geoBtn" type="button"><img src="img/gps_pointer.png"><p class="message">See stations near me!</p></button>
 			</form>
 		</div>
 		

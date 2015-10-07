@@ -6,30 +6,39 @@
 html,body{
 	height: 100%;
 	width: 100%;
+	/*Roboto font*/
+	font-family: 'Roboto', sans-serif;
 }
+
+input:focus,button:focus{outline: none;}
 
 #background{
 	height:100%;
 	width:100%;
-	background: url(img/bg.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: 0.5;
+	background: url(img/bg_1.jpg) no-repeat center center fixed;
+	/*background: url(img/bg.png) no-repeat center center fixed;*/
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  opacity: 1;
 }
+
+#map_bg{height: 100%; width: 100%;}
 
 #blackopacity{
 	height: 100%;
 	width: 100%;
-	opacity:0.7; 
+	opacity:0.4; 
 	background-color: #000;
+	background: url(img/pattern.png) repeat fixed;
+	background-size: 5px 5px;
 }
 
 #searchBox{
 	opacity: 1;
 	text-align: center;
-	height: 30px;
+	height: 52px;
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -38,11 +47,17 @@ html,body{
 	right: 0;
 }
 
+#searchField, #searchBtn{
+	/*how about having a drop shadow on the search box?*/
+	box-shadow: 3px 3px 10px #494949;
+}
 
 #searchField {
 	width: 300px;
 	height: 50px;
+	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
+	font-weight: 100;
 	padding-left: 10px;
 	border: 1px solid #fff;
 	vertical-align: top;
@@ -54,6 +69,7 @@ html,body{
 #searchField:focus{
 	outline: none;
 }
+
 #searchBtn {
 	font-size: 18px;
 	color: #fff;
@@ -64,7 +80,6 @@ html,body{
 	width: 80px;
 	display: inline-block;
 	background-color: #FFA028;
-
 	outline: none;
 }
 
@@ -72,12 +87,38 @@ html,body{
 	cursor: pointer;
 	border: 1px solid #FF8328;
 	background-color: #FF8328;
-	
 	transition: 0.5s;
 }
 
 #searchBtn:active{
-	transition: 0.5s;
-
+	transition: 0.25s;
 }
+
+#geoBtn{
+	background: none;
+	border: 0;
+	margin-left: 20px;
+	vertical-align: top;
+	cursor: pointer;
+	height: 52px;
+}
+#geoBtn img{
+	height: 52px;
+	width: auto;
+}
+#geoBtn:hover{
+	transform: rotate(20deg);
+}
+#geoBtn:hover > .message{
+	display: block;
+}
+
+.message{
+	display: none;
+	position: absolute;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 100;
+}
+
 
