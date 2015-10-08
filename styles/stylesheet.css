@@ -9,14 +9,50 @@ html,body{
 	/*Roboto font*/
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 input:focus,button:focus{outline: none;}
 
+.transparent{background: none;}
+
+header{
+	height: 60px; 
+	background-color: #515151;
+}
+
+#logo{
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 3em;
+	position: absolute;
+	top: 12px;
+	left: 10%;
+}
+
+#container{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+#content{
+	position: relative;
+	z-index: 100;
+	height: 100%;
+	width: 100%;
+}
+
 #background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -100;
 	height:100%;
 	width:100%;
-	background: url("../img/bg_1.jpg") no-repeat center center fixed;
+	background: url('../img/bg_1.jpg') no-repeat center center fixed;
 	/*background: url(../img/bg.png) no-repeat center center fixed;*/
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -121,6 +157,16 @@ input:focus,button:focus{outline: none;}
     -moz-animation:bounce 0.7s linear;
     animation:bounce 0.7s linear infinite;
 }
+
+
+#geoBtn:hover > .message{
+	display: none;
+}
+
+#map{height: calc(100% - 60px);}
+
+/*---------------------ANIMATIONS----------------------*/
+
 /*Make the geolocation marker jump*/
 @-moz-keyframes bounce{ 100% {-moz-transform:translateY(-5px);} }
 @-webkit-keyframes bounce{ 100% {-webkit-transform:translateY(-5px);} }
@@ -135,33 +181,6 @@ input:focus,button:focus{outline: none;}
 	87,5% {transform:translateY(2.5px); transform:scaleY(0.99);} 
 	100% {transform:translateY(0px);}
 }
-
-#geoBtn:hover > .message{
-	display: none;
-}
-
-.message{
-	display: none;
-	position: absolute;
-	color: #fff;
-	font-size: 16px;
-	font-weight: 100;
-}
-
-#map{height: 100%;}
-
-
-h1{
-	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 3em;
-	position: absolute;
-	top: 5%;
-	left: 10%;
-}
-
-
 
 
 

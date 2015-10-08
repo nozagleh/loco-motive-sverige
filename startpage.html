@@ -13,25 +13,29 @@
 	<link rel="stylesheet" type="text/css" href="styles/stylesheet.css" media="all" />
 </head>
 <body>
-
-	<div id="background"><div id="blackopacity">
-		<!-- google maps static api<img id="map_bg" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&scale=4&size=1916x955&key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I">-->
-	</div></div>
-		<header>
-			<h1><span style="color:#005b99;">Locomo</span><span style="color:#fcd116;">tive S</span><span style="color:#005b99;">verige</span></h1>
-		</header>
-		
-		
-		<div id="searchBox">
-			<form action="page.php" method="get">
-				<input id="searchField" type="text" name="search" placeholder="E.g. Stockholm C, Tåg 420" /><input id="searchBtn" type="submit" value="" />
-				<button id="geoBtn" type="button"><img src="img/gps_pointer.png"><p class="message">See stations near me!</p></button>
-			</form>
+	<div id="container">
+		<div id="content">
+			<header class="transparent">
+				<h1 id="logo">LOGO</h1>
+			</header>
+			
+			<div id="searchBox">
+				<form action="page.php" method="get">
+					<input id="searchField" type="text" name="search" placeholder="E.g. Stockholm C, Tåg 420" /><input id="searchBtn" type="submit" value="" />
+					<button id="geoBtn" type="button"><img src="img/gps_pointer.png"></button>
+				</form>
+			</div>
+			
+			<footer>
+			
+			</footer>
 		</div>
-		
-		<footer>
-		
-		</footer>
-	
+
+		<div id="background">
+			<div id="blackopacity">
+				<!-- google maps static api<img id="map_bg" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&scale=4&size=1916x955&key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I">-->
+			</div>
+		</div>
+	</div>
 </body>
 </html>

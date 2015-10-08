@@ -10,33 +10,41 @@
 		<!--<script type="text/javascript" src="js/getGeolocation.js"></script>-->
 	</head>
 	<body>
-		<div id="map"></div>
-		<script type="text/javascript">
+		<div id="container">
+			<div id="content">
+				<header>
+					<h1 id="logo">LOGO</h1>
+				</header>
+				<div id="map"></div>
+				<script type="text/javascript">
 
-			//var latIn = <?php echo($lat); ?>;
-			//var lngIn = <?php print($lng); ?>;
+					//var latIn = <?php echo($lat); ?>;
+					//var lngIn = <?php print($lng); ?>;
 
-			var geoloc = {lat: <?php echo($lat); ?>, lng: <?php print($lng); ?>};
-			console.log(geoloc);
-			var map;
-			function initMap() {
-			  map = new google.maps.Map(document.getElementById('map'), {
-			    //center: {lat: 0, lng: 0},
-			    center: geoloc,
-			    zoom: 14
-			  });
+					var geoloc = {lat: <?php echo($lat); ?>, lng: <?php print($lng); ?>};
+					console.log(geoloc);
+					var map;
+					function initMap() {
+					  map = new google.maps.Map(document.getElementById('map'), {
+					    //center: {lat: 0, lng: 0},
+					    center: geoloc,
+					    zoom: 14
+					  });
 
-			  var person_marker = 'img/geo_marker_small.png';
-			  var marker = new google.maps.Marker({
-			  	position: geoloc,
-			  	map: map,
-			  	icon: person_marker,
-			  	title: 'You are here'
-			  });
-			}
-    	</script>
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I&callback=initMap">
-    </script>
+					  var person_marker = 'img/geo_marker_small.png';
+					  var marker = new google.maps.Marker({
+					  	position: geoloc,
+					  	map: map,
+					  	icon: person_marker,
+					  	title: 'You are here'
+					  });
+					}
+		    	</script>
+		<script async defer
+		      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAniM7GOQ9kIfDD9V5-QwQ6owIRnaMV62I&callback=initMap">
+		    </script>
+			</div>
+		</div>
+		
 	</body>
 </html>
