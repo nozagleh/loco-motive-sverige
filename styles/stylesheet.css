@@ -140,7 +140,7 @@ header{
 #geoBtn{
 	background: none;
 	border: 0;
-	margin-left: 20px;
+	padding-left: 20px;
 	vertical-align: top;
 	cursor: pointer;
 	height: 52px;
@@ -153,8 +153,8 @@ header{
 	/*transform: rotate(20deg);*/
 
 	/*start the geo jump*/
-	-webkit-animation:bounce 0.7s linear;
-    -moz-animation:bounce 0.7s linear;
+	-webkit-animation:bounce 0.7s linear infinite;
+    -moz-animation:bounce 0.7s linear infinite;
     animation:bounce 0.7s linear infinite;
 }
 
@@ -168,8 +168,28 @@ header{
 /*---------------------ANIMATIONS----------------------*/
 
 /*Make the geolocation marker jump*/
-@-moz-keyframes bounce{ 100% {-moz-transform:translateY(-5px);} }
-@-webkit-keyframes bounce{ 100% {-webkit-transform:translateY(-5px);} }
+@-moz-keyframes bounce{
+	0% {-moz-transform:translateY(0px);}
+	12,5% {-moz-transform:translateY(-2.5px);} 
+	25% {-moz-transform:translateY(-5px);} 
+	37,5% {-moz-transform:translateY(-2.5px);} 
+	50% {-moz-transform:translateY(0px);} 
+	62,5% {-moz-transform:translateY(2.5px); transform:scaleY(0.99);} 
+	75% {-moz-transform:translateY(5px); transform:scaleY(0.95);} 
+	87,5% {-moz-transform:translateY(2.5px); transform:scaleY(0.99);} 
+	100% {-moz-transform:translateY(0px);}
+}
+@-webkit-keyframes bounce{
+	0% {-webkit-transform:translateY(0px);}
+	12,5% {-webkit-transform:translateY(-2.5px);} 
+	25% {-webkit-transform:translateY(-5px);} 
+	37,5% {-webkit-transform:translateY(-2.5px);} 
+	50% {-webkit-transform:translateY(0px);} 
+	62,5% {-webkit-transform:translateY(2.5px); transform:scaleY(0.99);} 
+	75% {-webkit-transform:translateY(5px); transform:scaleY(0.95);} 
+	87,5% {-webkit-transform:translateY(2.5px); transform:scaleY(0.99);} 
+	100% {-webkit-transform:translateY(0px);}
+}
 @keyframes bounce{
 	0% {transform:translateY(0px);}
 	12,5% {transform:translateY(-2.5px);} 
