@@ -16,8 +16,8 @@ input:focus,button:focus{outline: none;}
 #background{
 	height:100%;
 	width:100%;
-	background: url(img/bg_1.jpg) no-repeat center center fixed;
-	/*background: url(img/bg.png) no-repeat center center fixed;*/
+	background: url("../img/bg_1.jpg") no-repeat center center fixed;
+	/*background: url(../img/bg.png) no-repeat center center fixed;*/
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -85,7 +85,7 @@ input:focus,button:focus{outline: none;}
 	outline: none;
 
 	/*Set BG as search glass?*/
-	background: url(img/search.png) no-repeat center center;
+	background: url("../img/search.png") no-repeat center center;
 	background-color: #FFA028;
 	background-size: 50px auto;
 }
@@ -148,7 +148,7 @@ input:focus,button:focus{outline: none;}
 	font-weight: 100;
 }
 
-
+#map{height: 100%;}
 
 
 h1{
