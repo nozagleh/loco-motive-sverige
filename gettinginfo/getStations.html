@@ -27,13 +27,13 @@
                 	var arr = data["RESPONSE"]["RESULT"][0]["TrainStation"];
                 	var arrlen = data["RESPONSE"]["RESULT"][0]["TrainStation"].length;
                 	console.log(arrlen);
-                	$("#data").append('INSERT INTO `Trainstations` VALUES');
+                	$("#data").append('INSERT INTO `trainstations`() VALUES ');
                 	for (var i = 0; i < arrlen; i++) {
                 		//arr[i]["Geometry"]["WGS84"]
 
                 		console.log("('" + arr[i]["LocationSignature"] + "','" + arr[i]["AdvertisedLocationName"] + "','" + arr[i]["Geometry"]["WGS84"].substring(7,arr[i]["Geometry"]["WGS84"].indexOf(")")) + "','" + arr[i]["CountryCode"] + "'),");
 
-                		$("#data").append("('" + arr[i]["LocationSignature"] + "','" + arr[i]["AdvertisedLocationName"] + "','" + arr[i]["Geometry"]["WGS84"] + "','" + arr[i]["CountryCode"] + "'),");
+                		$("#data").append("('" + arr[i]["LocationSignature"] + "','" + arr[i]["AdvertisedLocationName"] + "','" + arr[i]["Geometry"]["WGS84"].substring(7,arr[i]["Geometry"]["WGS84"].indexOf(")")) + "','" + arr[i]["CountryCode"] + "'),");
                 	};
                 	$("#data").append(');');
                 	//$("#data").text(data["RESPONSE"]["RESULT"]);
