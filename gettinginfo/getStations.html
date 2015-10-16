@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    	<script type="text/javascript">
+    	$(document).ready(function(){
+    		console.log("hello");
+    		var req = "<REQUEST>" +
+                                // Use your valid authenticationkey
+                                "<LOGIN authenticationkey='00adf64e36bd4f3c8b12e6a807e1e54e' />" +
+                                "<QUERY objecttype='TrainStation'>" +
+                                    "<FILTER/>" +
+                                    "<INCLUDE>LocationSignature</INCLUDE>" +
+                                    "<INCLUDE>AdvertisedLocationName</INCLUDE>" +
+                                    "<INCLUDE>Geometry.WGS84</INCLUDE>"+
+                                    "<INCLUDE>CountryCode</INCLUDE>"+
+                                "</QUERY>" +
+                             "</REQUEST>";
+
+    		$.ajax({
+    			url: "http://api.trafikinfo.trafikverket.se/v1/data.json",
+    			type: "POST",
+    			contentType: "text/xml",
+                dataType: "json",
+                data: req,
+                success: function(data){
+                	var arr = data["RESPONSE"]["RESULT"][0]["TrainStation"];
+                	var arrlen = data["RESPONSE"]["RESULT"][0]["TrainStation"].length;
+                	console.log(arrlen);
+                	$("#data").append('INSERT INTO `Trainstations` VALUES');
+                	for (var i = 0; i < arrlen; i++) {
+                		//arr[i]["Geometry"]["WGS84"]
+
+                		console.log("('" + arr[i]["LocationSignature"] + "','" + arr[i]["AdvertisedLocationName"] + "','" + arr[i]["Geometry"]["WGS84"].substring(7,arr[i]["Geometry"]["WGS84"].indexOf(")")) + "','" + arr[i]["CountryCode"] + "'),");
+
+                		$("#data").append("('" + arr[i]["LocationSignature"] + "','" + arr[i]["AdvertisedLocationName"] + "','" + arr[i]["Geometry"]["WGS84"] + "','" + arr[i]["CountryCode"] + "'),");
+                	};
+                	$("#data").append(');');
+                	//$("#data").text(data["RESPONSE"]["RESULT"]);
+                },
+                error: function(msg) {
+                	console.log(msg);
+                }
+    		});
+    	});
+    	</script>
+	</head>
+	<body>
+		<div id="data">
+		</div>
+	</body>
+</html>
