@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    	<script type="text/javascript">
+    		$(document).ready(function(){
+    			$.ajax({
+    				url: 'getStations.php',
+    				type: 'POST',
+    				dataType: 'json',
+    				success: function(data){
+    					console.log(data);
+    					var dataLen = data.length;
+    					for (var i = 0; i < dataLen; i++) {
+    						console.log(data[i]["Name"]);
+    					};
+    				},
+    				error: function(e){
+    					console.log(e);
+    				}
+    			});
+    			
+    		});
+    	</script>
+	</head>
+	<body>
+		<div id="block"></div>
+	</body>
+</html>
