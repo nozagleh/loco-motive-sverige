@@ -98,7 +98,11 @@
 					}
 
 					function addStations(){
-						var station_marker = 'img/train-station.png';
+						var station_marker = {
+							url: 'img/station-small.png',
+							size: new google.maps.Size(32,32),
+							origin: new google.maps.Point(0,0)
+						};
 					  	var stations = [];
 						$.ajax({
 			    				url: 'getStations.php',
@@ -127,7 +131,19 @@
 										  	console.log(stationName);
 										  	$("#station").fadeToggle(400);
 										  	$("#stationBannerName").text(stationName);
+										  	$("#map").toggleClass('fade');
 										});
+
+			    						/* Find a way to hide markers at certain zoom level
+										map.addListener('zoom_changed', function() {
+											console.log(map.getZoom());
+										    if (map.getZoom() <= 10) {
+										  		marker.setVisible(false);
+										  	}else{
+										  		marker.setVisible(true);
+										  	};
+										});
+										*/
 			    					}
 			    				},
 			    				error: function(e){

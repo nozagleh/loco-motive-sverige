@@ -184,6 +184,11 @@ header{
 
 .show{display: block;}
 
+.fade{
+	background-color: #000;
+	opacity: 0.5;
+}
+
 /*---------------------ANIMATIONS----------------------*/
 
 /*Make the geolocation marker jump*/
