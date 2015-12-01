@@ -139,13 +139,14 @@
                                         "<OR>" +
                                             "<AND>" +
                                                 "<GT name='AdvertisedTimeAtLocation' " +
-                                                            "value='$dateadd(-02:15:00)' />" +
+                                                            "value='$dateadd(01:00:00)' />" +
                                                 "<LT name='AdvertisedTimeAtLocation' " +
                                                             "value='$dateadd(14:00:00)' />" +
                                             "</AND>" +
                                             "<GT name='EstimatedTimeAtLocation' value='$now' />" +
                                         "</OR>" +
-                                        "<EQ name='LocationSignature' value='" + sign + "' />" +
+                                        //"<EQ name='LocationSignature' value='" + sign + "' />" +
+                                        "<EQ name='LocationSignature' value='Sk' />" +
                                         "<EQ name='ActivityType' value='Avgang' />" +
                                     "</AND>" +
                                     "</FILTER>" +
